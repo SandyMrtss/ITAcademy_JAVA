@@ -32,13 +32,13 @@ class Futbol extends Noticies {
 
     public void calcularPreuNoticia(){
         int preu = 300;
-        if (competicio == "Lliga de Campions") {
+        if (competicio.equalsIgnoreCase("Lliga de Campions")) {
             preu += 100;
         }
-        if (club == "Barça" || club == "Madrid") {
+        if (club.equalsIgnoreCase("Barça") || club.equalsIgnoreCase("Madrid")) {
             preu += 100;
         }
-        if (jugador == "Ferran Torres" || jugador == "Benzema") {
+        if (jugador.equalsIgnoreCase("Ferran Torres") || jugador.equalsIgnoreCase("Benzema")) {
             preu += 50;
         }
         this.preu = preu;
@@ -46,16 +46,16 @@ class Futbol extends Noticies {
 
     public void calcularPuntsNoticia(){
         int punts = 5;
-        if (competicio == "Lliga de Campions") {
+        if (competicio.equalsIgnoreCase("Lliga de Campions")) {
             punts += 3;
         }
-        if (competicio == "Lliga") {
+        if (competicio .equalsIgnoreCase("Lliga")) {
             punts += 2;
         }
-        if (club == "Barça" || club == "Madrid") {
+        if (club.equalsIgnoreCase("Barça") || club.equalsIgnoreCase("Madrid")) {
             punts += 1;
         }
-        if (jugador == "Ferran Torres" || jugador == "Benzema") {
+        if (jugador.equalsIgnoreCase("Ferran Torres") || jugador.equalsIgnoreCase("Benzema")) {
             punts += 1;
         }
         this.punts = punts;
@@ -75,10 +75,10 @@ class Basquet extends Noticies {
 
     public void calcularPreuNoticia(){
         int preu = 250;
-        if (competicio == "Eurolliga") {
+        if (competicio.equalsIgnoreCase("Eurolliga")) {
             preu += 75;
         }
-        if (club == "Barça" || club == "Madrid") {
+        if (club.equalsIgnoreCase("Barça") || club.equalsIgnoreCase("Madrid")) {
             preu += 75;
         }
         this.preu = preu;
@@ -86,13 +86,13 @@ class Basquet extends Noticies {
 
     public void calcularPuntsNoticia(){
         int punts = 4;
-        if (competicio == "Eurolliga") {
+        if (competicio.equalsIgnoreCase("Eurolliga")) {
             punts += 3;
         }
-        if (competicio == "ACB") {
+        if (competicio.equalsIgnoreCase("ACB")) {
             punts += 2;
         }
-        if (club == "Barça" || club == "Madrid") {
+        if (club.equalsIgnoreCase("Barça") || club.equalsIgnoreCase("Madrid")) {
             punts += 1;
         }
         this.punts = punts;
@@ -111,14 +111,14 @@ class Tenis extends Noticies {
 
     public void calcularPreuNoticia() {
         int preu = 150;
-        if (jugador == "Federer" || jugador == "Nadal" || jugador == "Djokovic") {
+        if (jugador.equalsIgnoreCase("Federer") || jugador.equalsIgnoreCase("Nadal") || jugador.equalsIgnoreCase("Djokovic")) {
             preu += 100;
         }
         this.preu =  preu;
     }
     public void calcularPuntsNoticia(){
         int punts = 4;
-        if (jugador == "Federer" || jugador == "Nadal" || jugador == "Djokovic") {
+        if (jugador.equalsIgnoreCase("Federer") || jugador.equalsIgnoreCase("Nadal") || jugador.equalsIgnoreCase("Djokovic")) {
             punts += 3;
         }
         this.punts =  punts;
@@ -135,7 +135,7 @@ class F1 extends Noticies {
 
     public void calcularPreuNoticia() {
         int preu = 100;
-        if (escuderia == "Ferrari" || escuderia == "Mercedes") {
+        if (escuderia.equalsIgnoreCase("Ferrari") || escuderia.equalsIgnoreCase("Mercedes")) {
             preu += 50;
         }
         this.preu = preu;
@@ -143,7 +143,7 @@ class F1 extends Noticies {
 
     public void calcularPuntsNoticia(){
         int punts = 4;
-        if (escuderia == "Ferrari" || escuderia == "Mercedes") {
+        if (escuderia.equalsIgnoreCase("Ferrari") || escuderia.equalsIgnoreCase("Mercedes")) {
             punts += 2;
         }
         this.punts = punts;
@@ -160,7 +160,7 @@ class Motociclisme extends Noticies {
 
     public void calcularPreuNoticia() {
         int preu = 100;
-        if (equip == "Honda" || equip == "Yamaha") {
+        if (equip.equalsIgnoreCase("Honda") || equip.equalsIgnoreCase("Yamaha")) {
             preu += 50;
         }
         this.preu = preu;
@@ -168,7 +168,7 @@ class Motociclisme extends Noticies {
 
     public void calcularPuntsNoticia(){
         int punts = 3;
-        if (equip == "Honda" || equip == "Yamaha") {
+        if (equip.equalsIgnoreCase("Honda") || equip.equalsIgnoreCase("Yamaha")) {
             punts += 3;
         }
         this.punts = punts;

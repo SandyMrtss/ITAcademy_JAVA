@@ -13,25 +13,6 @@ public class Main {
         }
         return null;
     }
-
-    static boolean add_news_redactor(Noticies noticia, String nom) {
-        for (Redactor redactor : redactors) {
-            if (nom.equalsIgnoreCase(redactor.nom)) {
-                redactor.add_noticia(noticia);
-                return true;
-            }
-        }
-        return false;
-    }
-    static boolean del_news_redactor(String titulardel, String nom) {
-        for (Redactor redactor : redactors) {
-            if (nom.equalsIgnoreCase(redactor.nom)) {
-                redactor.delete_noticia(noticia);
-                return true;
-            }
-        }
-        return false;
-    }
     public static void optionMenu(String[] options) {
         for (String option : options) {
             System.out.println(option);
@@ -39,9 +20,9 @@ public class Main {
     }
 
     public static Noticies createNews(int section, String titular, String text) {
-        String competicio;
-        String team;
-        String jugador;
+        String competicio = "";
+        String team = "";
+        String jugador = "";
         Scanner in = new Scanner(System.in);
         if (section <= 3 ) {
             System.out.println("Si us plau, introdueix la competició a la que fa referència");
@@ -55,31 +36,21 @@ public class Main {
             System.out.println("Si us plau, introdueix el nom del jugador");
             jugador = in.nextLine();
         }
-
         if (section == 1) {
-            Noticies newsAdd = new Futbol(titular, text, competicio, team, jugador);
-            in.close();
-            return newsAdd;
+            return new Futbol(titular, text, competicio, team, jugador);
         }
         else if (section == 2) {
-            Noticies newsAdd = new Basquet(titular, text, competicio, team);
-            in.close();
-            return newsAdd;
+            return new Basquet(titular, text, competicio, team);
         }
         else if (section == 3) {
-            Noticies newsAdd = new Tenis(titular, text, competicio, jugador);
-            in.close();
-            return newsAdd;
+
+            return new Tenis(titular, text, competicio, jugador);
         }
         else if (section == 4) {
-            Noticies newsAdd = new F1(titular, text, team);
-            in.close();
-            return newsAdd;
+            return new F1(titular, text, team);
         }
         else {
-            Noticies newsAdd = new Motociclisme(titular, text, team);
-            in.close();
-            return newsAdd;
+            return new Motociclisme(titular, text, team);
         }
 
     }
@@ -103,33 +74,35 @@ public class Main {
 
         System.out.println("Què vols fer?");
         Scanner in = new Scanner(System.in);
-        int option;
-        while (true) {
+        int option = 0;
+        while (option < 8) {
             optionMenu(initialOptions);
             option = in.nextInt();
+            in.nextLine();
             switch (option) {
-                case 1:
+                case 1 -> {
                     System.out.println("Si us plau, introdueix el nom del redactor");
                     String nomAdd = in.nextLine();
                     System.out.println("Si us plau, introdueix el dni del redactor");
                     String dni = in.nextLine();
-                    Redactor redactorAdd = new Redactor(nomAdd,dni);
+                    Redactor redactorAdd = new Redactor(nomAdd, dni);
                     redactors.add(redactorAdd);
-                    System.out.printf("Redactor %s afegit. Vols fer alguna cosa més?\n",redactorAdd.nom);
-                    break;
-                case 2:
+                    System.out.printf("Redactor %s afegit.\n", redactorAdd.nom);
+                    System.out.println("Vols fer alguna cosa més?");
+                }
+                case 2 -> {
                     System.out.println("Si us plau, introdueix el nom del redactor");
                     String nomDel = in.nextLine();//assumeixo que l'usuari posarà un redactor existent
                     Redactor redactorDel = find_redactor(nomDel);
                     if (redactorDel != null) {
                         redactors.remove(redactorDel);
-                        System.out.printf("Redactor %s esborrat. Vols fer alguna cosa més?\n", nomDel);
+                        System.out.printf("Redactor %s esborrat.\n", nomDel);
+                    } else {
+                        System.out.println("Redactor no trobat.");
                     }
-                    else {
-                        System.out.println("Redactor no trobat. Vols fer alguna cosa més?");
-                    }
-                    break;
-                case 3:
+                    System.out.println("Vols fer alguna cosa més?");
+                }
+                case 3 -> {
                     System.out.println("Si us plau, introdueix el titular de la notícia");
                     String titularAdd = in.nextLine();
                     System.out.println("Si us plau, introdueix el text de la notícia");
@@ -137,48 +110,76 @@ public class Main {
                     System.out.println("De quina secció és?");
                     optionMenu(newsSections);
                     int section = in.nextInt();
+                    in.nextLine();
                     Noticies newsAdd = createNews(section, titularAdd, textAdd);
                     System.out.println("Si us plau, introdueix el nom del redactor");
                     String nomAddNews = in.nextLine();
                     Redactor redactorAddNew = find_redactor(nomAddNews);
                     if (redactorAddNew != null) {
                         redactorAddNew.add_noticia(newsAdd);
-                        System.out.printf("Noticia %s afegiga. Vols fer alguna cosa més?\n", nomDel);
+                        System.out.printf("Noticia %s afegiga al redactor %s.\n", newsAdd.titular, redactorAddNew.nom);
+                    } else {
+                        System.out.println("Redactor no trobat.");
                     }
-                    else {
-                        System.out.println("Redactor no trobat. Vols fer alguna cosa més?");
-                    }
-                    break;
-                case 4:
+                    System.out.println("Vols fer alguna cosa més?");
+                }
+                case 4 -> {
                     System.out.println("De quin redactor és la notícia?");
                     String nomDelNews = in.nextLine();
+                    Redactor redactorDelNew = find_redactor(nomDelNews);
+                    if (redactorDelNew == null) {
+                        System.out.println("Redactor no trobat.");
+                        System.out.println("Vols fer alguna cosa més?");
+                        break;
+                    }
                     System.out.println("Quien és el titular de la notícia?");
-                    String nomDelNews = in.nextLine();
-
-
+                    String titularDel = in.nextLine();
+                    Noticies noticiaDel = redactorDelNew.find_noticia(titularDel);
+                    if (noticiaDel != null) {
+                        redactorDelNew.del_noticia(noticiaDel);
+                        System.out.printf("Noticía %s eliminada del redactor %s.\n", titularDel, nomDelNews);
+                    } else {
+                        System.out.println("Noticia no trobada.");
+                    }
+                    System.out.println("Vols fer alguna cosa més?");
+                }
+                case 5 -> {
+                    for (Redactor redactor : redactors) {
+                        redactor.show_all_news();
+                    }
+                    System.out.println("Vols fer alguna cosa més?");
+                }
+                case 6, 7 -> {
+                    System.out.println("De quin redactor és la notícia?");
+                    String nomP = in.nextLine();
+                    Redactor redactorP = find_redactor(nomP);
+                    if (redactorP == null) {
+                        System.out.println("Redactor no trobat.");
+                        System.out.println("Vols fer alguna cosa més?");
+                        break;
+                    }
+                    System.out.println("Quien és el titular de la notícia?");
+                    String titularP = in.nextLine();
+                    Noticies noticiaP = redactorP.find_noticia(titularP);
+                    if (redactorP.find_noticia(titularP) == null) {
+                        System.out.println("Noticia no trobada.");
+                        System.out.println("Vols fer alguna cosa més?");
+                        break;
+                    }
+                    if (option == 6) {
+                        noticiaP.calcularPuntsNoticia();
+                        System.out.printf("Punts noticia %s: %d\n", noticiaP.titular ,noticiaP.punts);
+                    } else {
+                        noticiaP.calcularPreuNoticia();
+                        System.out.printf("Preu noticia %s: %d€\n", noticiaP.titular ,noticiaP.punts);
+                    }
+                }
+                default -> System.out.println("Programa finalitzat");
             }
         }
-
-
-        //Introduir noticia al redactor
-        Noticies noticia_futbol = new Futbol("Un gol de pel·lícula", "text here", "Lliga de campions", "Barça", "Ferran Torres");
-        Noticies noticia_tenis = new Tenis("titular sobre tenis", "text here", "Open", "Nadal");
-        Noticies noticia_basquet = new Basquet("titular sobre basquet", "text here", "ABC", "Madrid");
-        redactor1.add_noticia(noticia_futbol);
-        redactor1.add_noticia(noticia_tenis);
-        redactor1.add_noticia(noticia_basquet);
-
-        //Eliminar noticia
-        redactor1.delete_noticia(noticia_tenis);
-
-        //Mostrar totes les notícies per redactor
-        redactor1.show_all_news();
-
-        //Calcular puntuació
-        noticia_basquet.calcularPuntsNoticia();
-
-        //Calcular preu
-        noticia_tenis.calcularPreuNoticia();
         in.close();
     }
+
+
 }
+

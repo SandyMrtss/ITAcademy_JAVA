@@ -16,10 +16,17 @@ public class Redactor {
         this.noticies.add(noticia);
     }
 
-    public void delete_noticia(Noticies noticia){
+    public void del_noticia(Noticies noticia){
         this.noticies.remove(noticia);
     }
-
+    public Noticies find_noticia(String titular){
+        for (Noticies noticia : this.noticies) {
+            if ((noticia.titular).equalsIgnoreCase(titular)) {
+                return noticia;
+            }
+        }
+        return null;
+    }
     public void show_all_news(){
         System.out.printf("AUTOR: %s \n", this.nom);
         for (Noticies noticia: noticies) {
