@@ -4,18 +4,14 @@ import java.util.*;
 
 public class Main {
     static ArrayList<Redactor> redactors = new ArrayList<>();
-    static void add_redactor(Redactor redactor) {
-        redactors.add(redactor);
-    }
 
-    static boolean delete_redactor(String nom) {
+    static Redactor find_redactor(String nom){
         for (Redactor redactor : redactors){
             if(nom.equalsIgnoreCase(redactor.nom)) {
-                redactors.remove(redactor);
-                return true;
+                return redactor;
             }
         }
-        return false;
+        return null;
     }
 
     static boolean add_news_redactor(Noticies noticia, String nom) {
@@ -118,14 +114,16 @@ public class Main {
                     System.out.println("Si us plau, introdueix el dni del redactor");
                     String dni = in.nextLine();
                     Redactor redactorAdd = new Redactor(nomAdd,dni);
-                    add_redactor(redactorAdd);
+                    redactors.add(redactorAdd);
                     System.out.printf("Redactor %s afegit. Vols fer alguna cosa més?\n",redactorAdd.nom);
                     break;
                 case 2:
                     System.out.println("Si us plau, introdueix el nom del redactor");
-                    String nomDel = in.nextLine();         //assumeixo que l'usuari posarà un redactor existent
-                    if (delete_redactor(nomDel)) {
-                        System.out.printf("Redactor %s afegit. Vols fer alguna cosa més?\n", nomDel);
+                    String nomDel = in.nextLine();//assumeixo que l'usuari posarà un redactor existent
+                    Redactor redactorDel = find_redactor(nomDel);
+                    if (redactorDel != null) {
+                        redactors.remove(redactorDel);
+                        System.out.printf("Redactor %s esborrat. Vols fer alguna cosa més?\n", nomDel);
                     }
                     else {
                         System.out.println("Redactor no trobat. Vols fer alguna cosa més?");
@@ -142,8 +140,10 @@ public class Main {
                     Noticies newsAdd = createNews(section, titularAdd, textAdd);
                     System.out.println("Si us plau, introdueix el nom del redactor");
                     String nomAddNews = in.nextLine();
-                    if (add_news_redactor(newsAdd, nomAddNews)){
-                        System.out.printf("Notícia %s afegida al redactor %s\n", newsAdd.titular, nomAddNews);
+                    Redactor redactorAddNew = find_redactor(nomAddNews);
+                    if (redactorAddNew != null) {
+                        redactorAddNew.add_noticia(newsAdd);
+                        System.out.printf("Noticia %s afegiga. Vols fer alguna cosa més?\n", nomDel);
                     }
                     else {
                         System.out.println("Redactor no trobat. Vols fer alguna cosa més?");
