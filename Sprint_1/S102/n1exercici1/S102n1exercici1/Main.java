@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Intentem una venda buida:");
         vendaBuida.calcularTotal();
 
-        System.out.println("Intentem una venda amb prductes:");
-        vendaProd.calcularTotal();
+       System.out.println("Intentem una venda amb prductes:");
+       vendaProd.calcularTotal();
     }
 }
