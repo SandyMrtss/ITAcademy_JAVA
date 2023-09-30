@@ -10,14 +10,16 @@ public class Venda {
 
     public void calcularTotal() throws VendaBuidaException {
         try {
-            for (int i = 0; i < productes.length; i++) {
-                System.out.println(productes.length);
-                preuTotal += productes[i].preu;
+            if (productes.length == 0) {
+                throw new VendaBuidaException();
+            }
+            for (Producte producte : productes) {
+                preuTotal += producte.preu;
             }
             System.out.printf("Preu Total = %.2f €", this.preuTotal);
         }
         catch (VendaBuidaException ex){
-            ex.getMessage();
+            System.out.println(ex.getMessage());
 
         }
 
