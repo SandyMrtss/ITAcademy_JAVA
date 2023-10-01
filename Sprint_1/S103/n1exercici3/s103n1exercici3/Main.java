@@ -36,8 +36,8 @@ public class Main {
 
     static void guardarPuntuacio(String userName, int puntuacio) {
         try {
-            FileWriter myWriter = new FileWriter("Sprint_1/S103/n1exercici3/s103n1exercici3/classificacio.txt");
-            myWriter.write(userName + " " + puntuacio);
+            FileWriter myWriter = new FileWriter("Sprint_1/S103/n1exercici3/s103n1exercici3/classificacio.txt",true);
+            myWriter.write(userName + " " + puntuacio + System.lineSeparator());
             myWriter.close();
         }
         catch (IOException ignored) {}
