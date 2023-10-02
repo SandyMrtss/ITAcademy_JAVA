@@ -1,8 +1,9 @@
 package s103n2exercici1;
+import com.sun.jdi.ClassNotPreparedException;
+
 import java.util.HashSet;
 
-
-public class Restaurant extends HashSet{
+public class Restaurant extends HashSet<Restaurant> implements Comparable<Restaurant> {
     public String nom;
     public int puntuacio;
 
@@ -13,15 +14,25 @@ public class Restaurant extends HashSet{
 
     @Override
     public boolean equals(Object o) {
+        if (o.getClass() != Restaurant.class) {
+            throw new ClassNotPreparedException();
+        }
         if (o == this){
             return true;
         }
         Restaurant restAdd = (Restaurant) o;
-        if (restAdd != null) {
-            if (this.puntuacio == restAdd.puntuacio & this.nom.equals(restAdd.nom)) {
-                return true;
-            }
-        }
-        return false;
+        return this.puntuacio == restAdd.puntuacio & this.nom.equals(restAdd.nom);
+
     }
+
+    @Override
+    public int compareTo(Restaurant r1){
+        int i = r1.nom.compareTo(this.nom);
+        if(i == 0){
+            i = this.puntuacio - r1.puntuacio;
+        }
+        return i;
+    }
+
 }
+
