@@ -5,7 +5,6 @@ public class Person implements Comparable<Person>{
     private String surname;
     private String id;
 
-    public Person(){}
 
     public Person(String name, String surname, String id){
         this.name = name;
@@ -29,7 +28,7 @@ public class Person implements Comparable<Person>{
     }
 
     public int compareToByName(Person p1) {
-        return this.name.compareToIgnoreCase(p1.id);
+        return this.name.compareToIgnoreCase(p1.name);
     }
 
     public int compareToBySurname(Person p1){

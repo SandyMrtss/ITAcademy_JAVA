@@ -31,7 +31,7 @@ public class Main {
         try {
             File data = new File("Sprint_1/S103/n3exercici1/s103n3exercici1/data.csv");
             Scanner myReader = new Scanner(data);
-            Set<Person> dataSet = new HashSet<Person>();
+            Set<Person> dataSet = new HashSet<>();
             String header = myReader.nextLine();
             String[] headerSep = header.split(",");
             int name = 3, surname = 3, id = 3;
@@ -72,12 +72,10 @@ public class Main {
                 "6.- Mostrar les persones ordenades per DNI (1-9).\n" +
                 "7.- Mostrar les persones ordenades per DNI (9-1).\n" +
                 "0.- Sortir.");
-        int option =  Entrada.llegirInt("Opció escollida: ");
-        return option;
+        return Entrada.llegirInt("Opció escollida: ");
     }
 
     static Person createPerson(){
-        Scanner in = new Scanner(System.in);
         String name, surname, id;
         name = Entrada.llegirString("Introdueix nom: ");
         surname = Entrada.llegirString("Introdueix cognom: ");
@@ -86,19 +84,11 @@ public class Main {
     }
 
     static void showOrderedSet(SortedSet<Person> orderedSet){
-        System.out.println("___Nom___ ____Cognoms___ __NIF__ ");
+        System.out.println("___Nom___ _____Cognoms____ ___NIF___ ");
         for (Person person : orderedSet) {
-            System.out.printf("%s %s %s\n", person.getName(), person.getSurname(), person.getId());
+            System.out.printf("%-9s %-17s %9s\n", person.getName(), person.getSurname(), person.getId());
         }
     }
-
-    static SortedSet<Person> orderSet(Set<Person> unorderedSet, SortedSet<Person> orderedSet){
-        for (Person person : unorderedSet){
-            orderedSet.add(person);
-        }
-        return orderedSet;
-    }
-
 
     public static void main(String[] args){
         Set<Person> dataSet = readData();
@@ -106,39 +96,45 @@ public class Main {
         int option;
         do {
             option = menuOption();
-            switch (option){
-                case 1:
+            switch (option) {
+                case 1 -> {
                     dataSet.add(createPerson());
                     System.out.println("Persona afegida");
-                    break;
-                case 2:
-                    orderedSet = orderSet(dataSet, new TreeSet<>(new compareByName()));
+                }
+                case 2 -> {
+                    orderedSet = new TreeSet<>(new compareByName());
+                    orderedSet.addAll(dataSet);
                     showOrderedSet(orderedSet);
-                    break;
-                case 3:
-                    orderedSet = orderSet(dataSet, new TreeSet<>(new compareByName().reversed()));
+                }
+                case 3 -> {
+                    orderedSet = new TreeSet<>(new compareByName().reversed());
+                    orderedSet.addAll(dataSet);
                     showOrderedSet(orderedSet);
-                    break;
-                case 4:
-                    orderedSet = orderSet(dataSet, new TreeSet<>(new compareBySurname()));
+                }
+                case 4 -> {
+                    orderedSet = new TreeSet<>(new compareBySurname());
+                    orderedSet.addAll(dataSet);
                     showOrderedSet(orderedSet);
-                    break;
-                case 5:
-                    orderedSet = orderSet(dataSet, new TreeSet<>(new compareBySurname().reversed()));
+                }
+                case 5 -> {
+                    orderedSet = new TreeSet<>(new compareBySurname().reversed());
+                    orderedSet.addAll(dataSet);
                     showOrderedSet(orderedSet);
-                    break;
-                case 6:
-                    orderedSet = orderSet(dataSet, new TreeSet<>(new compareById()));
+                }
+                case 6 -> {
+                    orderedSet = new TreeSet<>(new compareById());
+                    orderedSet.addAll(dataSet);
                     showOrderedSet(orderedSet);
-                    break;
-                case 7:
-                    orderedSet = orderSet(dataSet, new TreeSet<>(new compareById().reversed()));
+                }
+                case 7 -> {
+                    orderedSet = new TreeSet<>(new compareById().reversed());
+                    orderedSet.addAll(dataSet);
                     showOrderedSet(orderedSet);
-                    break;
-                default:
+                }
+                default -> {
                     option = 0;
                     System.out.println("Programa finalitzat");
-                    break;
+                }
             }
         }
         while (option != 0);
