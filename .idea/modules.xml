@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ITASpec_Java.iml" filepath="$PROJECT_DIR$/ITASpec_Java.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Sprint_1/Sprint_1.iml" filepath="$PROJECT_DIR$/Sprint_1/Sprint_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ITAcademy_JAVA.iml" filepath="$PROJECT_DIR$/ITAcademy_JAVA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sprint1/S101/S101.iml" filepath="$PROJECT_DIR$/Sprint1/S101/S101.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sprint1/S102/S102.iml" filepath="$PROJECT_DIR$/Sprint1/S102/S102.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sprint1/S103/S103.iml" filepath="$PROJECT_DIR$/Sprint1/S103/S103.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sprint1/S104/S104.iml" filepath="$PROJECT_DIR$/Sprint1/S104/S104.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sprint1/Sprint1.iml" filepath="$PROJECT_DIR$/Sprint1/Sprint1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sprint1/S101/Sprint_1/Sprint_1.iml" filepath="$PROJECT_DIR$/Sprint1/S101/Sprint_1/Sprint_1.iml" />
     </modules>
   </component>
 </project>
