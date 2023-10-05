@@ -1,4 +1,7 @@
 package n3exercici1;
+import n3exercici1.exceptions.ExcepcioButacaLliure;
+import n3exercici1.exceptions.ExcepcioButacaOcupada;
+
 import java.util.ArrayList;
 
 public class GestioButaques {

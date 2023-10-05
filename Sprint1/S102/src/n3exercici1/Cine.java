@@ -1,5 +1,9 @@
 package n3exercici1;
 import n2exercici1.Entrada;
+import n3exercici1.exceptions.ExcepcioFilaIncorrecte;
+import n3exercici1.exceptions.ExcepcioNomPersonaIncorrecte;
+import n3exercici1.exceptions.ExcepcioSeientIncorrecte;
+
 import java.util.ArrayList;
 
 public class Cine {
