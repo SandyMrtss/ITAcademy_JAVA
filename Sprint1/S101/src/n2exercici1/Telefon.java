@@ -1,6 +1,6 @@
 package n2exercici1;
 
-public class Telefon {
+class Telefon {
     String marca;
     String model;
 
