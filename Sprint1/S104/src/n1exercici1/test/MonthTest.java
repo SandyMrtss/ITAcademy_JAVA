@@ -2,7 +2,7 @@ package n1exercici1.test;
 import java.util.List;
 import n1exercici1.*;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MonthTest {
     List<String> orderedMonths = orderMonths.getList();
@@ -18,5 +18,8 @@ class MonthTest {
         assertEquals(7, position);
     }
 
-
+    @Test
+    void nullity(){
+        assertNotNull(orderedMonths);
+    }
 }
