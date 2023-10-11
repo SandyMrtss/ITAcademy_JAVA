@@ -1,22 +1,29 @@
 package n1exercici2;
-import n1exercici1.listDirContent;
+import n1exercici1.myFileVisitor;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
-public class ListTreeDir extends listDirContent{
+public class ListTreeDir extends myFileVisitor {
     public ListTreeDir(){
         super();
     }
 
-    static void listTree(Path dir){
-        try {
-            Path startingDir = dir;
-            listDirContent printf = new listDirContent();
-            Files.walkFileTree(startingDir, printf);
+    public static void main(String[] args){
+        if(args.length > 0){
+            try {
+                String startingDir = args[0];
+                Path startingDirPath = Paths.get(startingDir);
+                myFileVisitor printf = new myFileVisitor();
+                Files.walkFileTree(startingDirPath, printf);
+            }
+            catch (IOException ex) {
+                System.out.println(ex);
+            }
         }
-        catch (IOException ex) {
-            System.out.println(ex);
+        else {
+            System.out.println("Please write the desired directory's path");
         }
     }
 }

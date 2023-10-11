@@ -1,7 +1,5 @@
 package n1exercici3;
 
-import n1exercici1.listDirContent;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
