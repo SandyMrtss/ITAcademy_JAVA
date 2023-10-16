@@ -1,12 +1,9 @@
 package n1exercici1;
 
 class Percussion extends Instrument {
-    {
-        this.name = "tambor";
-    }
 
-    static {
-        price = 300;
+    public Percussion(String name, int price) {
+        super(name, price);
     }
 
     public void play() {

@@ -1,12 +1,12 @@
 package n1exercici2;
 
 public class Cotxe {
-    final static String brand = "Toyota";
-    static String model;
-    final int power = 1000;
+    final private static String brand = "Toyota";
+    private static String model;
+    final private int power = 1000;
 
-    public Cotxe(String model) {
-        this.model = model;     //Única variable inicialitzable al constructor
+    public Cotxe() {
+        this.model = "Auris";     //Única variable inicialitzable al constructor
     }
     static void frenar(){
         System.out.println("El vehicle està frenant");

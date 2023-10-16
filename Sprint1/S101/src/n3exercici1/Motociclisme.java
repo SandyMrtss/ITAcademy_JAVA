@@ -1,10 +1,10 @@
 package n3exercici1;
 
 class Motociclisme extends Noticies {
-    public String equip;
+    private String equip;
 
-    public Motociclisme(String titular, String text, String equip) {
-        super(titular, text);
+    public Motociclisme(String titular, String equip) {
+        super(titular);
         this.equip = equip;
     }
 
@@ -13,7 +13,7 @@ class Motociclisme extends Noticies {
         if (equip.equalsIgnoreCase("Honda") || equip.equalsIgnoreCase("Yamaha")) {
             preu += 50;
         }
-        this.preu = preu;
+        this.setPreu(preu);
     }
 
     public void calcularPuntsNoticia() {
@@ -21,6 +21,6 @@ class Motociclisme extends Noticies {
         if (equip.equalsIgnoreCase("Honda") || equip.equalsIgnoreCase("Yamaha")) {
             punts += 3;
         }
-        this.punts = punts;
+        this.setPunts(punts);
     }
 }

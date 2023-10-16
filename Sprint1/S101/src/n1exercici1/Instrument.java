@@ -1,11 +1,12 @@
 package n1exercici1;
 
 public abstract class Instrument {
-    public String name;
-    public static int price;
+    private String name;
+    private int price;
 
-    public Instrument(){
-        System.out.println("He sigut creat pel constructor de la classe n1exercici1.Instrument!");
+    public Instrument(String name, int price){
+        this.name = name;
+        this.price = price;
     }
 
     abstract void play();

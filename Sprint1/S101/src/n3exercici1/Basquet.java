@@ -1,11 +1,11 @@
 package n3exercici1;
 
 class Basquet extends Noticies {
-    public String competicio;
-    public String club;
+    private String competicio;
+    private String club;
 
-    public Basquet(String titular, String text, String competicio, String club) {
-        super(titular, text);
+    public Basquet(String titular, String competicio, String club) {
+        super(titular);
         this.competicio = competicio;
         this.club = club;
     }
@@ -18,7 +18,7 @@ class Basquet extends Noticies {
         if (club.equalsIgnoreCase("Barça") || club.equalsIgnoreCase("Madrid")) {
             preu += 75;
         }
-        this.preu = preu;
+        this.setPreu(preu);
     }
 
     public void calcularPuntsNoticia() {
@@ -32,6 +32,6 @@ class Basquet extends Noticies {
         if (club.equalsIgnoreCase("Barça") || club.equalsIgnoreCase("Madrid")) {
             punts += 1;
         }
-        this.punts = punts;
+        this.setPunts(punts);
     }
 }

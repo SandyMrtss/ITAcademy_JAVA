@@ -6,9 +6,9 @@ public class Main {
     static class compareRestaurants implements Comparator<Restaurant>{
         @Override
         public int compare(Restaurant r1, Restaurant r2) {
-            int i = r1.nom.compareTo(r2.nom);
+            int i = r1.getNom().compareTo(r2.getNom());
             if(i == 0){
-                i = r2.puntuacio - r1.puntuacio;
+                i = r2.getPuntuacio() - r1.getPuntuacio();
             }
             return i;
         }
@@ -26,7 +26,7 @@ public class Main {
         bbddOrdenada.add(restaurant4);
 
         for (Restaurant restaurant : bbddOrdenada){
-            System.out.printf("Nom: %s, Puntuació: %d\n", restaurant.nom, restaurant.puntuacio);
+            System.out.printf("Nom: %s, Puntuació: %d\n", restaurant.getNom(), restaurant.getPuntuacio());
         }
 
     }

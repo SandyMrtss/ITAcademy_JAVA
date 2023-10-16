@@ -1,12 +1,12 @@
 package n3exercici1;
 
 class Futbol extends Noticies {
-    public String competicio;
-    public String club;
-    public String jugador;
+    private String competicio;
+    private String club;
+    private String jugador;
 
-    public Futbol(String titular, String text, String competicio, String club, String jugador) {
-        super(titular, text);
+    public Futbol(String titular, String competicio, String club, String jugador) {
+        super(titular);
         this.competicio = competicio;
         this.club = club;
         this.jugador = jugador;
@@ -23,7 +23,7 @@ class Futbol extends Noticies {
         if (jugador.equalsIgnoreCase("Ferran Torres") || jugador.equalsIgnoreCase("Benzema")) {
             preu += 50;
         }
-        this.preu = preu;
+        this.setPreu(preu);
     }
 
     public void calcularPuntsNoticia() {
@@ -40,6 +40,6 @@ class Futbol extends Noticies {
         if (jugador.equalsIgnoreCase("Ferran Torres") || jugador.equalsIgnoreCase("Benzema")) {
             punts += 1;
         }
-        this.punts = punts;
+        this.setPunts(punts);
     }
 }

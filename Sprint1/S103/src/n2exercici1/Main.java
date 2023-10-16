@@ -17,7 +17,7 @@ public class Main {
         bbdd.add(restaurant3);
 
         for (Restaurant restaurant : bbdd){
-            System.out.printf("Nom: %s, Puntuació: %d\n", restaurant.nom, restaurant.puntuacio);
+            System.out.printf("Nom: %s, Puntuació: %d\n", restaurant.getNom(), restaurant.getPuntuacio());
         }
 
 

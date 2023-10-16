@@ -33,7 +33,7 @@ public class Main {
 
         System.out.println("ArrayList sense agost");
         for (Month month : months) {
-            System.out.println(month.name);
+            System.out.println(month.getName());
         }
         System.out.println();
 
@@ -41,7 +41,7 @@ public class Main {
 
         System.out.println("ArrayList amb agost");
         for (Month month : months) {
-            System.out.println(month.name);
+            System.out.println(month.getName());
         }
         System.out.println();
 
@@ -50,14 +50,14 @@ public class Main {
 
         System.out.println("Recorrem HashSet amb un for");
         for (Month month : monthsHashSet) {
-            System.out.println(month.name);
+            System.out.println(month.getName());
         }
         System.out.println();
 
         Iterator<Month> it = monthsHashSet.iterator();
         System.out.println("Recorrem HashSet amb un iterador");
         while (it.hasNext()){
-            System.out.println(it.next().name);
+            System.out.println(it.next().getName());
         }
 
 

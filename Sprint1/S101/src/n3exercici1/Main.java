@@ -7,7 +7,7 @@ public class Main {
 
     static Redactor find_redactor(String nom){
         for (Redactor redactor : redactors){
-            if(nom.equalsIgnoreCase(redactor.nom)) {
+            if(nom.equalsIgnoreCase(redactor.getNom())) {
                 return redactor;
             }
         }
@@ -19,7 +19,7 @@ public class Main {
         }
     }
 
-    public static Noticies createNews(int section, String titular, String text) {
+    public static Noticies createNews(int section, String titular) {
         String competicio = "";
         String team = "";
         String jugador = "";
@@ -37,20 +37,20 @@ public class Main {
             jugador = in.nextLine();
         }
         if (section == 1) {
-            return new Futbol(titular, text, competicio, team, jugador);
+            return new Futbol(titular, competicio, team, jugador);
         }
         else if (section == 2) {
-            return new Basquet(titular, text, competicio, team);
+            return new Basquet(titular, competicio, team);
         }
         else if (section == 3) {
 
-            return new Tenis(titular, text, competicio, jugador);
+            return new Tenis(titular, competicio, jugador);
         }
         else if (section == 4) {
-            return new F1(titular, text, team);
+            return new F1(titular, team);
         }
         else {
-            return new Motociclisme(titular, text, team);
+            return new Motociclisme(titular, team);
         }
 
     }
@@ -87,7 +87,7 @@ public class Main {
                     String dni = in.nextLine();
                     Redactor redactorAdd = new Redactor(nomAdd, dni);
                     redactors.add(redactorAdd);
-                    System.out.printf("Redactor %s afegit.\n", redactorAdd.nom);
+                    System.out.printf("Redactor %s afegit.\n", redactorAdd.getNom());
                     System.out.println("Vols fer alguna cosa més?");
                 }
                 case 2 -> {
@@ -106,18 +106,17 @@ public class Main {
                     System.out.println("Si us plau, introdueix el titular de la notícia");
                     String titularAdd = in.nextLine();
                     System.out.println("Si us plau, introdueix el text de la notícia");
-                    String textAdd = in.nextLine();
                     System.out.println("De quina secció és?");
                     optionMenu(newsSections);
                     int section = in.nextInt();
                     in.nextLine();
-                    Noticies newsAdd = createNews(section, titularAdd, textAdd);
+                    Noticies newsAdd = createNews(section, titularAdd);
                     System.out.println("Si us plau, introdueix el nom del redactor");
                     String nomAddNews = in.nextLine();
                     Redactor redactorAddNew = find_redactor(nomAddNews);
                     if (redactorAddNew != null) {
-                        redactorAddNew.add_noticia(newsAdd);
-                        System.out.printf("Noticia %s afegiga al redactor %s.\n", newsAdd.titular, redactorAddNew.nom);
+                        redactorAddNew.getNoticies().add(newsAdd);
+                        System.out.printf("Noticia %s afegiga al redactor %s.\n", newsAdd.getTitular(), redactorAddNew.getNom());
                     } else {
                         System.out.println("Redactor no trobat.");
                     }
@@ -136,7 +135,7 @@ public class Main {
                     String titularDel = in.nextLine();
                     Noticies noticiaDel = redactorDelNew.find_noticia(titularDel);
                     if (noticiaDel != null) {
-                        redactorDelNew.del_noticia(noticiaDel);
+                        redactorDelNew.getNoticies().remove(noticiaDel);
                         System.out.printf("Noticía %s eliminada del redactor %s.\n", titularDel, nomDelNews);
                     } else {
                         System.out.println("Noticia no trobada.");
@@ -168,10 +167,10 @@ public class Main {
                     }
                     if (option == 6) {
                         noticiaP.calcularPuntsNoticia();
-                        System.out.printf("Punts noticia %s: %d\n", noticiaP.titular ,noticiaP.punts);
+                        System.out.printf("Punts noticia %s: %d\n", noticiaP.getTitular(), noticiaP.getPunts());
                     } else {
                         noticiaP.calcularPreuNoticia();
-                        System.out.printf("Preu noticia %s: %d€\n", noticiaP.titular ,noticiaP.punts);
+                        System.out.printf("Preu noticia %s: %d€\n", noticiaP.getTitular(), noticiaP.getPreu());
                     }
                 }
                 default -> {

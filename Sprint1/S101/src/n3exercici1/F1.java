@@ -1,10 +1,10 @@
 package n3exercici1;
 
 class F1 extends Noticies {
-    public String escuderia;
+    private String escuderia;
 
-    public F1(String titular, String text, String escuderia) {
-        super(titular, text);
+    public F1(String titular, String escuderia) {
+        super(titular);
         this.escuderia = escuderia;
     }
 
@@ -13,7 +13,7 @@ class F1 extends Noticies {
         if (escuderia.equalsIgnoreCase("Ferrari") || escuderia.equalsIgnoreCase("Mercedes")) {
             preu += 50;
         }
-        this.preu = preu;
+        this.setPreu(preu);
     }
 
     public void calcularPuntsNoticia() {
@@ -21,6 +21,6 @@ class F1 extends Noticies {
         if (escuderia.equalsIgnoreCase("Ferrari") || escuderia.equalsIgnoreCase("Mercedes")) {
             punts += 2;
         }
-        this.punts = punts;
+        this.setPunts(punts);
     }
 }

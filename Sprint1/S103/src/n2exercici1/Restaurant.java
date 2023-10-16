@@ -4,13 +4,22 @@ import com.sun.jdi.ClassNotPreparedException;
 import java.util.HashSet;
 
 public class Restaurant extends HashSet<Restaurant> implements Comparable<Restaurant> {
-    public String nom;
-    public int puntuacio;
+    private String nom;
+    private int puntuacio;
 
     public Restaurant(String nom, int puntuacio) {
         this.nom = nom;
         this.puntuacio = puntuacio;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getPuntuacio() {
+        return puntuacio;
+    }
+
 
     @Override
     public boolean equals(Object o) {

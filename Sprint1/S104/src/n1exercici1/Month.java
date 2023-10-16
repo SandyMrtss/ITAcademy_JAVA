@@ -6,8 +6,8 @@ import java.util.Map;
 public class Month implements Comparable<Month> {
     private String name;
     private int position;
-    static final String[] monthListInOrder = {"gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"};
-    static Map<String, Integer> orderKey = new HashMap<>();
+    private static final String[] monthListInOrder = {"gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"};
+    private static Map<String, Integer> orderKey = new HashMap<>();
 
     {
         for (int i = 0; i < monthListInOrder.length; i++){
@@ -25,6 +25,10 @@ public class Month implements Comparable<Month> {
     public String getName() {
         return this.name;
     }
+    public static Map<String, Integer> getOrderKey() {
+        return orderKey;
+    }
+
     @Override
     public int compareTo(Month month){
         return this.position - month.position;

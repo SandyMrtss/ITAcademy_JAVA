@@ -1,16 +1,12 @@
 package n3exercici1;
 import n2exercici1.Entrada;
-import n3exercici1.exceptions.ExcepcioFilaIncorrecte;
-import n3exercici1.exceptions.ExcepcioNomPersonaIncorrecte;
-import n3exercici1.exceptions.ExcepcioSeientIncorrecte;
-
+import n3exercici1.exceptions.*;
 import java.util.ArrayList;
 
 public class Cine {
-    public int nFiles;
-    public int nSeientsFila;
-
-    final GestioButaques gestioButaques;
+    private int nFiles;
+    private int nSeientsFila;
+    private final GestioButaques gestioButaques;
 
 
     public Cine(){
@@ -92,8 +88,8 @@ public class Cine {
             String persona = introduirPersona();
             ArrayList<Butaca> butaques = gestioButaques.getButaques();
             for(Butaca butaca : butaques){
-                if (butaca.nomReserva.equalsIgnoreCase(persona)){
-                    gestioButaques.eliminarButaca(butaca.nFila, butaca.nSeient);
+                if (butaca.getNomReserva().equalsIgnoreCase(persona)){
+                    gestioButaques.eliminarButaca(butaca.getNFila(), butaca.getNSeient());
                 }
             }
             System.out.printf("Reserves de %s anulades correctament\n", persona);
