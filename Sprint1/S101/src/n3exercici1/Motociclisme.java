@@ -8,6 +8,7 @@ class Motociclisme extends Noticies {
         this.equip = equip;
     }
 
+    @Override
     public void calcularPreuNoticia() {
         int preu = 100;
         if (equip.equalsIgnoreCase("Honda") || equip.equalsIgnoreCase("Yamaha")) {
@@ -16,6 +17,7 @@ class Motociclisme extends Noticies {
         this.setPreu(preu);
     }
 
+    @Override
     public void calcularPuntsNoticia() {
         int punts = 3;
         if (equip.equalsIgnoreCase("Honda") || equip.equalsIgnoreCase("Yamaha")) {

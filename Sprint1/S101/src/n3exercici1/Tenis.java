@@ -10,6 +10,7 @@ class Tenis extends Noticies {
         this.jugador = jugador;
     }
 
+    @Override
     public void calcularPreuNoticia() {
         int preu = 150;
         if (jugador.equalsIgnoreCase("Federer") || jugador.equalsIgnoreCase("Nadal") || jugador.equalsIgnoreCase("Djokovic")) {
@@ -18,6 +19,7 @@ class Tenis extends Noticies {
         this.setPreu(preu);
     }
 
+    @Override
     public void calcularPuntsNoticia() {
         int punts = 4;
         if (jugador.equalsIgnoreCase("Federer") || jugador.equalsIgnoreCase("Nadal") || jugador.equalsIgnoreCase("Djokovic")) {

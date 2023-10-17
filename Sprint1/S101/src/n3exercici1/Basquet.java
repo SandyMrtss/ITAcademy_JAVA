@@ -10,6 +10,7 @@ class Basquet extends Noticies {
         this.club = club;
     }
 
+    @Override
     public void calcularPreuNoticia() {
         int preu = 250;
         if (competicio.equalsIgnoreCase("Eurolliga")) {
@@ -21,6 +22,7 @@ class Basquet extends Noticies {
         this.setPreu(preu);
     }
 
+    @Override
     public void calcularPuntsNoticia() {
         int punts = 4;
         if (competicio.equalsIgnoreCase("Eurolliga")) {

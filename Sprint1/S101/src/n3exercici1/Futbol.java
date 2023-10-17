@@ -12,6 +12,7 @@ class Futbol extends Noticies {
         this.jugador = jugador;
     }
 
+    @Override
     public void calcularPreuNoticia() {
         int preu = 300;
         if (competicio.equalsIgnoreCase("Lliga de Campions")) {
@@ -26,6 +27,7 @@ class Futbol extends Noticies {
         this.setPreu(preu);
     }
 
+    @Override
     public void calcularPuntsNoticia() {
         int punts = 5;
         if (competicio.equalsIgnoreCase("Lliga de Campions")) {

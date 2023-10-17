@@ -8,6 +8,7 @@ class F1 extends Noticies {
         this.escuderia = escuderia;
     }
 
+    @Override
     public void calcularPreuNoticia() {
         int preu = 100;
         if (escuderia.equalsIgnoreCase("Ferrari") || escuderia.equalsIgnoreCase("Mercedes")) {
@@ -16,6 +17,7 @@ class F1 extends Noticies {
         this.setPreu(preu);
     }
 
+    @Override
     public void calcularPuntsNoticia() {
         int punts = 4;
         if (escuderia.equalsIgnoreCase("Ferrari") || escuderia.equalsIgnoreCase("Mercedes")) {
