@@ -11,4 +11,9 @@ public class InOfficeWorker extends Worker{
     public int computeWage(int workedHoursMonth){
         return workedHoursMonth * getWageByHour() + GAS;
     }
+
+    @Deprecated
+    public int deprecatedComputeWage(int workedHoursMonth){
+        return workedHoursMonth * getWageByHour();
+    }
 }

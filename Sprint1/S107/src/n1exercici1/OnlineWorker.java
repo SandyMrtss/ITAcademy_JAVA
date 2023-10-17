@@ -12,4 +12,9 @@ public class OnlineWorker extends Worker {
     public int computeWage(int workedHoursMonth){
         return workedHoursMonth * getWageByHour() + INTERNET;
     }
+
+    @Deprecated
+    public int deprecatedComputeWage(int workedHoursMonth){
+        return workedHoursMonth * getWageByHour();
+    }
 }
