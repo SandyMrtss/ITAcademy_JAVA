@@ -9,6 +9,8 @@ public class Main {
         int number = 50;
 
         GenericMethodsModified.printArguments(Sandy, sentence, number);
+        GenericMethodsModified.printArguments(sentence, Sandy, number);
+        //GenericMethodsModified.printArguments(number, Sandy, sentence); not valid
 
     }
 }
