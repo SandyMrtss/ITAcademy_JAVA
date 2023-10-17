@@ -1,6 +1,6 @@
 package n3exercici1;
 
-public class Smartphone implements Phone{
+public class Smartphone implements Phone {
     private String brand;
     private int number;
 
@@ -9,11 +9,11 @@ public class Smartphone implements Phone{
         this.number = number;
     }
 
-    static void takePictures(){
-        System.out.println("Smartphone is taking pictures");
+    public void takePictures(){
+        System.out.printf("Smartphone %s is taking pictures\n", this.brand);
     }
-
+    @Override
     public void call() {
-        System.out.println("Phone is calling");
+        System.out.printf("Phone %s is calling\n", this.brand);
     }
 }
