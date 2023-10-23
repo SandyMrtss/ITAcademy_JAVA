@@ -1,4 +1,4 @@
-package n1exercici3;
+package n1.n1exercici3;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

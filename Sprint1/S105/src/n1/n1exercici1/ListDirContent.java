@@ -1,7 +1,7 @@
-package n1exercici1;
+package n1.n1exercici1;
 import java.nio.file.*;
 
-public class listDirContent{
+public class ListDirContent{
     public static void main(String[] args) {
         if (args.length > 0){
             String dir = args[0];

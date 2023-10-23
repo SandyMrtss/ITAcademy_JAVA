@@ -1,4 +1,4 @@
-package n1exercici4;
+package n1.n1exercici4;
 import java.io.*;
 
 public class WriteFIleInConsole {

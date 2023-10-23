@@ -1,4 +1,4 @@
-package n1exercici1;
+package n1.n1exercici1;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
