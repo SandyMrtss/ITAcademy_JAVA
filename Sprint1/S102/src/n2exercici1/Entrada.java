@@ -79,7 +79,6 @@ public class Entrada {
             }
             catch(Exception ex) {
                 System.out.println("Error de format");
-                in.nextLine();
             }
         }
     }
@@ -89,11 +88,20 @@ public class Entrada {
             String s;
             try {
                 s = in.nextLine();
+                boolean allDigits = true;
+                for(int i = 0; i < s.length(); ++i) {
+                    char c = s.charAt(i);
+                    if(Character.isAlphabetic(c)){
+                       allDigits = false;
+                    }
+                }
+                if(allDigits){
+                    throw new Exception();
+                }
                 return s;
             }
             catch(Exception ex) {
                 System.out.println("Error de format");
-                in.nextLine();
             }
         }
     }
@@ -113,7 +121,6 @@ public class Entrada {
             }
             catch(Exception ex) {
                 System.out.println("Error de format");
-                in.nextLine();
             }
         }
     }

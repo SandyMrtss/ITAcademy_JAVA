@@ -1,5 +1,8 @@
 package n3exercici1;
 
+
+import java.util.Objects;
+
 public class Butaca {
     private final int nFila;
     private final int nSeient;
@@ -19,9 +22,15 @@ public class Butaca {
     public String getNomReserva(){
         return nomReserva;
     }
-    static boolean Equals(Butaca a, Butaca b){
-        return (a.nFila == b.nFila & a.nSeient == b.nSeient);
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Butaca butaca = (Butaca) object;
+        return nFila == butaca.nFila && nSeient == butaca.nSeient && Objects.equals(nomReserva, butaca.nomReserva);
     }
+
     @Override
     public String toString(){
         return "Fila:" + this.nFila + ", Seient:" + this.nSeient + ", Persona:" + this.nomReserva;

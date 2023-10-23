@@ -21,13 +21,13 @@ public class GestioButaques {
         }
         return -1;
     }
-    public void afegirButaca(Butaca butaca) throws Exception {
+    public void afegirButaca(Butaca butaca) throws ExcepcioButacaOcupada {
         if (cercarButaca(butaca.getNFila(), butaca.getNSeient()) == -1) {
             butaques.add(butaca);
         }
         else throw new ExcepcioButacaOcupada();
     }
-    public void eliminarButaca(int fila, int seient) throws Exception {
+    public void eliminarButaca(int fila, int seient) throws ExcepcioButacaLliure {
         for(Butaca butaca : butaques){
             if (butaca.getNFila() == fila & butaca.getNSeient() == seient) {
                 butaques.remove(butaca);

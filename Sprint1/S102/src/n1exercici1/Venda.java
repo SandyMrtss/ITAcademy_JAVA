@@ -9,21 +9,19 @@ public class Venda {
     }
 
 
-    public void calcularTotal() throws VendaBuidaException {
+    public void calcularTotal() throws VendaBuidaException{
         try {
-            if (productes.length == 0) {
+            if(productes.length == 0){
                 throw new VendaBuidaException();
             }
-            for (Producte producte : productes) {
-                preuTotal += producte.getPreu();
+            for(Producte producte : productes){
+                this.preuTotal += producte.getPreu();
             }
-            System.out.printf("Preu Total = %.2f €", this.preuTotal);
+            System.out.printf("Preu Total = %.2f €\n", this.preuTotal);
         }
-        catch (VendaBuidaException ex){
-            System.out.println(ex.getMessage());
-
+        catch (ArrayIndexOutOfBoundsException ex){
+            throw new VendaBuidaException();
         }
-
     }
 }
 
