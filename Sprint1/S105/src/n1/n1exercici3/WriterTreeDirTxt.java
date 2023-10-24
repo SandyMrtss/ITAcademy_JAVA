@@ -9,11 +9,19 @@ import static java.nio.file.FileVisitResult.CONTINUE;
 import static java.nio.file.Files.getLastModifiedTime;
 
 public class WriterTreeDirTxt extends SimpleFileVisitor <Path>{
-    private File output = new File("Sprint1/S105/src/n1exercici3/directoryTree.txt");
+    private File output = new File("Sprint1/S105/src/n1/directoryTree.txt");
     private FileWriter myWriter = new FileWriter(output, true);
 
     public WriterTreeDirTxt() throws IOException {
         super();
+    }
+
+    public void setOutput(File output) {
+        this.output = output;
+    }
+
+    public void setMyWriter(FileWriter myWriter) {
+        this.myWriter = myWriter;
     }
 
     @Override

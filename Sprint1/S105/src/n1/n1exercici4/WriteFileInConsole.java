@@ -1,7 +1,7 @@
 package n1.n1exercici4;
 import java.io.*;
 
-public class WriteFIleInConsole {
+public class WriteFileInConsole {
 
     public static void writeInConsole(String fileName){
         BufferedReader br = null;

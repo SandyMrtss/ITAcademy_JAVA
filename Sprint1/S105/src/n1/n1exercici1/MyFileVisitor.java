@@ -6,18 +6,18 @@ import static java.nio.file.FileVisitResult.*;
 import static java.nio.file.Files.*;
 
 
-public class myFileVisitor extends SimpleFileVisitor<Path> {
-    public myFileVisitor() {
+public class MyFileVisitor extends SimpleFileVisitor<Path> {
+    public MyFileVisitor() {
         super();
     }
 
-    static void listDirectory(Path dir) {
+    public static void listDirectory(Path dir) {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
             for (Path file : stream) {
                 System.out.println(file.getFileName());
             }
         } catch (IOException ex) {
-            System.out.println(ex);
+            ex.printStackTrace();
         }
     }
 

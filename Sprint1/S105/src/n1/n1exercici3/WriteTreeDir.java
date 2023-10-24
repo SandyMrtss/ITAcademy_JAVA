@@ -9,14 +9,13 @@ public class WriteTreeDir {
         super();
     }
 
-    static void writeTreeTxt(Path path){
+    public static void writeTreeTxt(Path path){
         try {
-            Path startingDir = path;
             WriterTreeDirTxt writef = new WriterTreeDirTxt();
-            Files.walkFileTree(startingDir, writef);
+            Files.walkFileTree(path, writef);
         }
         catch (IOException ex) {
-            System.out.println(ex);
+            ex.printStackTrace();
         }
     }
 }
