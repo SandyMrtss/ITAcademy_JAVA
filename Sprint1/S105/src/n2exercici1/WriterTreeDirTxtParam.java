@@ -1,4 +1,4 @@
-package n1.n1exercici3;
+package n2exercici1;
 
 import java.io.*;
 import java.nio.file.*;
@@ -8,12 +8,15 @@ import java.nio.file.attribute.*;
 import static java.nio.file.FileVisitResult.CONTINUE;
 import static java.nio.file.Files.getLastModifiedTime;
 
-public class WriterTreeDirTxt extends SimpleFileVisitor <Path>{
-    private File output = new File("Sprint1/S105/src/n1/directoryTree.txt");
-    private FileWriter myWriter = new FileWriter(output, true);
+public class WriterTreeDirTxtParam extends SimpleFileVisitor<Path> {
+    private File output;
+    private FileWriter myWriter;
 
-    public WriterTreeDirTxt() throws IOException {
+    public WriterTreeDirTxtParam(String filePath) throws IOException {
         super();
+        this.output = new File(filePath);
+        output.createNewFile();
+        this.myWriter = new FileWriter(output, true);
     }
 
     @Override
@@ -21,16 +24,16 @@ public class WriterTreeDirTxt extends SimpleFileVisitor <Path>{
         String lastModified = getLastModifiedTime(dir).toString();
         lastModified = lastModified.substring(0, lastModified.length() - 9);
         if (attr.isDirectory()) {
-            myWriter.write("(D)" + dir + "Last updated on " + lastModified + "\n");
+            myWriter.write("(D) " + dir + " Last updated on " + lastModified + "\n");
         } else if (attr.isRegularFile()) {
-            myWriter.write("(F)" + dir + "Last updated on " + lastModified + "\n");        }
+            myWriter.write("(F) " + dir + " Last updated on " + lastModified + "\n");        }
         return CONTINUE;
     }
     @Override
     public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attr) throws IOException {
         String lastModified = getLastModifiedTime(dir).toString();
         lastModified = lastModified.substring(0, lastModified.length() - 9);
-        myWriter.write("(D)" + dir + "Last updated on " + lastModified + "\n");
+        myWriter.write("(D) " + dir + " Last updated on " + lastModified + "\n");
         return CONTINUE;
     }
 
