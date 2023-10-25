@@ -9,11 +9,10 @@ public class Main {
         List<String> wordsWithO = new ArrayList<>();
         words.stream()
                 .filter(s -> s.toLowerCase().contains("o"))
-                .forEach(s -> wordsWithO.add(s));
+                .forEach(wordsWithO::add);
 
         for(String s : wordsWithO){
         System.out.println(s);
         }
     }
-
 }

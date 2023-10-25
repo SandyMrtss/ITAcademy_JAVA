@@ -1,6 +1,6 @@
 package n1exercici5;
 @FunctionalInterface
-public interface FunctionalMath  {
+public interface PiValue {
     double getPiValue();
 }
 
