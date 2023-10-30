@@ -29,7 +29,7 @@ public class Main {
 
     static Set<Person> readData(){
         try {
-            File data = new File("Sprint_1/S103/n3exercici1/s103n3exercici1/data.csv");
+            File data = new File("Sprint1/S103/n3exercici1/s103n3exercici1/data.csv");
             Scanner myReader = new Scanner(data);
             Set<Person> dataSet = new HashSet<>();
             String header = myReader.nextLine();

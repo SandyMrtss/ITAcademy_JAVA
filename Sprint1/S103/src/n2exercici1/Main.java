@@ -11,7 +11,6 @@ public class Main {
         Restaurant restaurant2 = new Restaurant("McDonald's", 1);
         Restaurant restaurant3 = new Restaurant("McDonald's", 2);
 
-
         bbdd.add(restaurant1);
         bbdd.add(restaurant2);
         bbdd.add(restaurant3);
@@ -19,10 +18,5 @@ public class Main {
         for (Restaurant restaurant : bbdd){
             System.out.printf("Nom: %s, Puntuació: %d\n", restaurant.getNom(), restaurant.getPuntuacio());
         }
-
-
-
-
-
     }
 }
