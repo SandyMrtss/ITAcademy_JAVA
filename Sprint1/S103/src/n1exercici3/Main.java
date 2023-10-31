@@ -3,19 +3,15 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
 
 public class Main {
-    static String dirPath = System.getProperty("user.dir") + "/";
     static HashMap<String,String> recopilarDatos() throws FileNotFoundException {
-        Path pathAbsolute = Paths.get(System.getProperty("user.dir"));
-        Path pathBase = Paths.get("/n1exercici3/countries.txt");
-        Path pathRelative = pathBase.relativize(pathAbsolute);
-        System.out.println(pathRelative);
-        File paisCapitales = new File(dirPath + "Sprint1/S103/src/n1exercici3/countries.txt");
+        String path = Main.class.getResource("countries.txt").toString();
+        path = path.replace("file:/", "");
+        File paisCapitales = new File(path);
         Scanner myReader = new Scanner(paisCapitales);
         HashMap<String, String> paisCapital = new HashMap<>();
 
@@ -38,7 +34,9 @@ public class Main {
 
     static void guardarPuntuacio(String userName, int puntuacio) {
         try {
-            FileWriter myWriter = new FileWriter(dirPath + "Sprint1/S103/src/n1exercici3/classificacio.txt",true);
+            String path = Paths.get("classificacio.txt").toString();
+            path = path.replace("file:/", "");
+            FileWriter myWriter = new FileWriter(path,true);
             myWriter.write(userName + " " + puntuacio + System.lineSeparator());
             myWriter.close();
         }

@@ -1,5 +1,4 @@
 package n3exercici1;
-import n2exercici1.Entrada;
 import java.io.*;
 import java.util.*;
 
@@ -29,7 +28,9 @@ public class Main {
 
     static Set<Person> readData(){
         try {
-            File data = new File("Sprint1/S103/n3exercici1/s103n3exercici1/data.csv");
+            String path = Main.class.getResource("data.csv").toString();
+            path = path.replace("file:/", "");
+            File data = new File(path);
             Scanner myReader = new Scanner(data);
             Set<Person> dataSet = new HashSet<>();
             String header = myReader.nextLine();

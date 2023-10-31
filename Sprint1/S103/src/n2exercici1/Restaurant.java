@@ -1,8 +1,6 @@
 package n2exercici1;
 import com.sun.jdi.ClassNotPreparedException;
 
-import java.util.HashSet;
-
 public class Restaurant implements Comparable<Restaurant> {
     private String nom;
     private int puntuacio;
@@ -40,9 +38,9 @@ public class Restaurant implements Comparable<Restaurant> {
 
     @Override
     public int compareTo(Restaurant r1){
-        int i = r1.nom.compareTo(this.nom);
+        int i = this.nom.compareTo(r1.nom);
         if(i == 0){
-            i = this.puntuacio - r1.puntuacio;
+            i = r1.puntuacio - this.puntuacio;
         }
         return i;
     }
