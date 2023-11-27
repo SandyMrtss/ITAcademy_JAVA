@@ -16,8 +16,6 @@ public class Main {
                         && s.length() == 3))
                 .forEach(wordsWithAAndThree::add);
 
-        for (String s : wordsWithAAndThree) {
-            System.out.println(s);
-        }
+        wordsWithAAndThree.forEach(System.out::println);
     }
 }

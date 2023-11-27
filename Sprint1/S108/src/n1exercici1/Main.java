@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         List<String> words;
-        words = Arrays.asList("hola", "my", "name", "is", "Sandy", "and", "some", "words", "are", "longer",
+        words = Arrays.asList("hola","Or", "my", "name", "is", "Sandy", "and", "some", "words", "are", "longer",
                 "than", "others", "are", "shorter", "or", "so", "they", "say");
 
         List<String> wordsWithO = new ArrayList<>();
@@ -11,8 +11,6 @@ public class Main {
                 .filter(s -> s.toLowerCase().contains("o"))
                 .forEach(wordsWithO::add);
 
-        for(String s : wordsWithO){
-        System.out.println(s);
-        }
+        wordsWithO.forEach(System.out::println);
     }
 }

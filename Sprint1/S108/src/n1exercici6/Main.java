@@ -1,7 +1,7 @@
 package n1exercici6;
 import java.util.*;
 
-public class Main {
+public class Main{
 
     public static void main(String[] args) {
         List<Object> list = Arrays.asList("hola", "my", "name", "is", "Sandy", "and", "some", "words", "are", "longer",
@@ -10,11 +10,10 @@ public class Main {
         List<String> sortedList = new ArrayList<>();
         list.stream()
                 .filter(o -> o instanceof String)
-                .forEach( o -> sortedList.add((String) o));
+                .map(Object::toString)
+                .sorted(Comparator.comparing(String::length))
+                .forEach(sortedList::add);
 
-        sortedList.sort(Comparator.comparing(String::length));
-        for(String s : sortedList) {
-            System.out.println(s);
-        }
+        sortedList.forEach(System.out::println);
     }
 }

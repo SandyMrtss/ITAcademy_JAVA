@@ -11,11 +11,10 @@ public class Main {
         List<String> sortedList = new ArrayList<>();
         list.stream()
                 .filter(o -> o instanceof String)
-                .forEach( o -> sortedList.add((String) o));
+                .map(Object::toString)
+                .sorted(Comparator.comparing(String::length).reversed())
+                .forEach(sortedList::add);
 
-        sortedList.sort(Comparator.comparing(String::length).reversed());
-        for(String s : sortedList) {
-            System.out.println(s);
-        }
+        sortedList.forEach(System.out::println);
     }
 }

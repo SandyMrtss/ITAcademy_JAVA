@@ -17,9 +17,9 @@ public class Main {
                 .forEach(s-> stringList.add(s.toString().toLowerCase()));
 
         List<String> sortedList = new ArrayList<>(stringList);
-        sortedList.sort(Comparator.comparingInt(o -> ((int) (o.charAt(0)))));
         System.out.println("Ordenats pel primer caràcter:");
-        sortedList
+        sortedList.stream()
+                .sorted(Comparator.comparingInt(o -> ((int) (o.charAt(0)))))
                 .forEach(System.out::println);
 
         List<String> sortedEList = new ArrayList<>();

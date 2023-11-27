@@ -14,8 +14,6 @@ public class Main {
                         && s.length() > 5))
                 .forEach(s -> wordsWithOAndLong.add(s));
 
-        for(String s : wordsWithOAndLong) {
-            System.out.println(s);
-        }
+        wordsWithOAndLong.forEach(System.out::println);
     }
 }
